@@ -31,8 +31,8 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   function validateURL(userInput: string) {
     //coppied first line from https://stackoverflow.com/a/30971061/8449116
-    const regexQuery = "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$";
-    const url = new RegExp(regexQuery, "i");
+    var regexQuery = "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$";
+    var url = new RegExp(regexQuery, "i");
     return url.test(userInput);
   }
 
@@ -40,12 +40,12 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
     //validating url
 
-    const image_url = req.query.image_url;
-    const isUrlOFImageValid = validateURL(image_url);
+    var image_url = req.query.image_url;
+    var isUrlOFImageValid = validateURL(image_url);
 
     if (isUrlOFImageValid){
       //call filterImageFromURL(image_url) to filter the image
-      const pathOfImage = await filterImageFromURL(image_url);
+      var pathOfImage = await filterImageFromURL(image_url);
 
       var options = {
         dotfiles: 'deny',
