@@ -36,9 +36,15 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     return url.test(userInput);
   }
 
+
   app.get("/filteredimage", async (req, res) => {
 
     //validating url
+
+    // req is used to handle user response and send it to server
+    // res is used to handle server response and send it to user
+    // console.log(req);
+    // console.log(res);
 
     var image_url = req.query.image_url;
     var isUrlOFImageValid = validateURL(image_url);
